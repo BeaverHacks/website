@@ -10,7 +10,10 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' />
+          <link
+            href='https://fonts.googleapis.com/css?family=Roboto:400,700,900'
+            rel='stylesheet'
+          />
         </Head>
         <body>
           <Main />
