@@ -2,6 +2,7 @@ import App, { Container } from 'next/app'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
 import Header from '../components/header'
+import theme from '../theme'
 
 export default class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
@@ -26,7 +27,7 @@ export default class MyApp extends App {
             }
           }}
         />
-        <ThemeProvider theme={{}}>
+        <ThemeProvider theme={theme}>
           <Header />
           <Component {...pageProps} />
         </ThemeProvider>
