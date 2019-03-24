@@ -3,6 +3,11 @@ import styled from '@emotion/styled'
 
 export const Hero = styled(Flex)`
   height: 70vh;
+
+  @media (max-width: 40em) {
+    height: 40vh;
+  }
+
   background-image: url('/static/kelley.jpg');
   background-size: cover;
   background-attachment: fixed;
