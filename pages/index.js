@@ -8,6 +8,7 @@ export default () => (
       alignItems='center'
       justifyContent={['center', 'flex-start']}
       px={[0, 4]}
+      image='/static/kelley.jpg'
     >
       <Flex flexDirection='column' alignItems={['center', 'flex-start']}>
         <HeroText
