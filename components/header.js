@@ -2,8 +2,13 @@ import Link from 'next/link'
 import { Box, Flex, Text, Button } from '@rebass/emotion'
 
 export default () => (
-  <Flex as='nav' py={4} alignItems='center'>
-    <Flex width={1 / 3}>
+  <Flex
+    as='nav'
+    py={4}
+    alignItems={['center']}
+    flexDirection={['column', 'row']}
+  >
+    <Flex width={[1, 1 / 3]} mb={[4, 0]}>
       <Box mx={4}>
         <Link href='/'>
           <Text
@@ -18,12 +23,12 @@ export default () => (
       </Box>
     </Flex>
     <Flex
-      width={2 / 3}
-      justifyContent='flex-end'
+      width={[1, 2 / 3]}
+      justifyContent={['space-evenly', 'flex-end']}
       flexDirection='row'
       alignItems='center'
     >
-      <Box mx={4}>
+      <Box mx={[0, 4]}>
         <Link href='/about'>
           <Text
             as='a'
@@ -35,7 +40,7 @@ export default () => (
           </Text>
         </Link>
       </Box>
-      <Box mx={4}>
+      <Box mx={[0, 4]}>
         <Link href='/contact'>
           <Text
             color='black'
@@ -47,7 +52,7 @@ export default () => (
           </Text>
         </Link>
       </Box>
-      <Box mx={4}>
+      <Box mx={[0, 4]}>
         <Link href='/participate'>
           <Button as='a' bg='orange'>
             <Text fontFamily='sans'>Participate</Text>
