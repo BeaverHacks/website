@@ -28,7 +28,7 @@ Then visit http://localhost:3000 in your browser to see your changes live.
 
 ## Deployment
 
-Deployment is 100% handled by Now — when commits are pushd to `master`, Now will automatically redeploy our website. You can reach live versions of the website at any of the following URLs:
+Deployment is 100% handled by Now — when commits are pushed to `master`, Now will automatically redeploy our website. You can reach live versions of the website at any of the following URLs:
 
 - https://osuhacks.com
 - https://beaverhacks.now.sh
