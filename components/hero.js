@@ -12,7 +12,7 @@ export const Hero = styled(Flex)`
   background-size: cover;
   background-attachment: fixed;
   background-position: bottom;
-  clip-path: polygon(0 0, 1600px 15%, 1600px 100%, 0 85%);
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
   background-color: ${({ theme }) => theme.colors.orange}
 `
 
