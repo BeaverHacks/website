@@ -1,35 +1,16 @@
-import { Component } from 'react'
-import Link from 'next/link'
-import { boolean } from 'prop-types'
-import Header from '../components/header'
+import { TextContainer, Heading, Text } from '../components/content'
 
-class AboutPage extends Component {
-  static getInitialProps () {
-    const isServer = typeof window === 'undefined'
-    return { isServer }
-  }
-
-  render () {
-    return (
-      <main>
-        <Header />
-        <section>
-          <p>
-            This is another page of the SSR example, you accessed it{' '}
-            <strong>{this.props.isServer ? 'server' : 'client'} side</strong>.
-          </p>
-          <p>You can reload to see how the page change.</p>
-          <Link href='/'>
-            <a>Go to Home</a>
-          </Link>
-        </section>
-      </main>
-    )
-  }
-}
-
-AboutPage.propTypes = {
-  isServer: boolean
-}
-
-export default AboutPage
+export default () => (
+  <TextContainer>
+    <Heading>About OSU Hackathon Club</Heading>
+    <Heading fontSize={5}>Mission</Heading>
+    <Text>Stuff about us</Text>
+    <Heading fontSize={5}>Club Leadership</Heading>
+    <Text>Pictures of club leaders</Text>
+    <Heading>Our Events</Heading>
+    <Heading fontSize={5}>BeaverHacks</Heading>
+    <Text>Stuff about BeaverHacks</Text>
+    <Heading fontSize={5}>Coding Challences</Heading>
+    <Text>Stuff about coding challenges</Text>
+  </TextContainer>
+)
