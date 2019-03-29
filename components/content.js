@@ -9,7 +9,7 @@ import { node, string, bool } from 'prop-types'
 
 const TextContainer = ({ children }) => (
   <Flex width={1} justifyContent='center' px={3}>
-    <Box css={{ maxWidth: '800px' }}>{children}</Box>
+    <Box css={{ flexBasis: '800px' }}>{children}</Box>
   </Flex>
 )
 
