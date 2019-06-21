@@ -45,7 +45,8 @@ export default () => (
       </Flex>
       <Flex width={1} alignItems='center' flexDirection='column'>
         <Heading>Next Event</Heading>
-        <Highlight mt={0}>March 29th, 2019</Highlight>
+        <Highlight mt={0}>June 20th, 2019</Highlight> to{' '}
+        <Highlight>June 23rd, 2019</Highlight>
         <Flex>
           <Button
             mt={3}
