@@ -5,7 +5,7 @@ import {
   Text as BaseText
 } from '@rebass/emotion'
 
-import { node, string, bool } from 'prop-types'
+import PropTypes from 'prop-types'
 
 const TextContainer = ({ children }) => (
   <Flex width={1} justifyContent='center' px={3}>
@@ -14,7 +14,7 @@ const TextContainer = ({ children }) => (
 )
 
 TextContainer.propTypes = {
-  children: node
+  children: PropTypes.node
 }
 
 const Heading = ({ children, ...props }) => (
@@ -31,7 +31,7 @@ const Heading = ({ children, ...props }) => (
 )
 
 Heading.propTypes = {
-  children: string
+  children: PropTypes.string
 }
 
 const Text = ({ children, alone, ...props }) => (
@@ -49,8 +49,8 @@ const Text = ({ children, alone, ...props }) => (
 )
 
 Text.propTypes = {
-  children: node,
-  alone: bool
+  children: PropTypes.node,
+  alone: PropTypes.bool
 }
 
 const Highlight = ({ children, ...props }) => (
@@ -66,6 +66,11 @@ const Highlight = ({ children, ...props }) => (
   </Text>
 )
 
-Highlight.propTypes = { children: string }
+Highlight.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ])
+}
 
 export { TextContainer, Heading, Text, Highlight }
