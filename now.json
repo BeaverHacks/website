@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "beaverhacks-website",
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
-  "alias": ["beaverhacks.now.sh", "osuhackathonclub.now.sh"]
+  "builds": [
+    { "src": "package.json", "use": "@now/next" },
+    { "src": "lambdas/**.js", "use": "@now/node" }
+  ],
+  "alias": ["beaverhacks.now.sh", "osuhackathonclub.now.sh"],
+  "routes": [{ "src": "/api/(.*)", "dest": "/lambdas/$1.js" }]
 }
