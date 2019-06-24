@@ -24,6 +24,7 @@
     "@emotion/styled": "^10.0.6",
     "@rebass/emotion": "^3.0.0",
     "airtable": "^0.6.0",
+    "date-fns-timezone": "^0.1.4",
     "emotion-theming": "^10.0.6",
     "ky": "^0.11.1",
     "ky-universal": "^0.2.1",
