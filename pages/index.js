@@ -47,7 +47,7 @@ const HomePage = ({ start, end, status }) => {
           </HeroText>
         </Flex>
       </Hero>
-      <HalfAndHalf alignItems='flex-start'>
+      <HalfAndHalf alignItems='flex-start' mt={4}>
         <Flex
           alignItems='center'
           flexDirection='column'
