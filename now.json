@@ -6,5 +6,9 @@
     { "src": "lambdas/**.js", "use": "@now/node" }
   ],
   "alias": ["beaverhacks.now.sh", "osuhackathonclub.now.sh"],
-  "routes": [{ "src": "/api/(.*)", "dest": "/lambdas/$1.js" }]
+  "routes": [{ "src": "/api/(.*)", "dest": "/lambdas/$1.js" }],
+  "env": {
+    "AIRTABLE_KEY": "@airtable-key",
+    "AIRTABLE_BASE_ID": "@airtable-homepage-id"
+  }
 }
