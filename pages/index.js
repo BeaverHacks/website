@@ -2,6 +2,7 @@ import { Box, Flex, Button } from '@rebass/emotion'
 import Head from 'next/head'
 import ky from 'ky-universal'
 import PropTypes from 'prop-types'
+import { formatToTimeZone } from 'date-fns-timezone'
 
 import { Hero, HeroText } from '../components/hero'
 import { HalfAndHalf } from '../components/layouts'
@@ -115,12 +116,16 @@ HomePage.getInitialProps = async ({ req, res }) => {
   }
 
   if (res) {
-    res.setHeader('Cache-Control', 's-maxage=36000, stale-while-revalidate')
+    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
   }
 
   return {
-    start: start.toDateString(),
-    end: end.toDateString(),
+    start: formatToTimeZone(start, 'dddd, MMM Do [at] h A z', {
+      timeZone: 'America/Los_Angeles'
+    }),
+    end: formatToTimeZone(end, 'dddd, MMM Do [at] h A z', {
+      timeZone: 'America/Los_Angeles'
+    }),
     status
   }
 }
