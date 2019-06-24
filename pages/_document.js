@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
             rel='stylesheet'
           />
         </Head>
-        <body css={{ paddingBottom: '4em' }}>
+        <body>
           <Main />
           <NextScript />
         </body>
