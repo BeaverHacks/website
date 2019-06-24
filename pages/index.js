@@ -1,4 +1,5 @@
 import { Box, Flex, Button } from '@rebass/emotion'
+import Head from 'next/head'
 import ky from 'ky-universal'
 import PropTypes from 'prop-types'
 
@@ -18,8 +19,12 @@ const HomePage = ({ start, end, status }) => {
     default:
       eventHeader = 'Next Event'
   }
+
   return (
     <Box as='main' width={[1]}>
+      <Head>
+        <title>Home | BeaverHacks</title>
+      </Head>
       <Hero
         alignItems='center'
         justifyContent={['center', 'flex-start']}
