@@ -15,7 +15,7 @@ const HomePage = ({ start, end, status }) => {
       eventHeader = 'Event In Progress'
       break
     case 'past':
-      eventHeader = 'Previous Event'
+      eventHeader = 'Last Event'
       break
     default:
       eventHeader = 'Next Event'
@@ -68,27 +68,6 @@ const HomePage = ({ start, end, status }) => {
           <Highlight>{start}</Highlight>
           <Text alone> to </Text>
           <Highlight>{end}</Highlight>
-          <Flex>
-            <Button
-              mt={3}
-              color='black'
-              bg='transparent'
-              border='3px solid orange'
-              borderColor='black'
-            >
-              Learn More
-            </Button>
-            <Button
-              mt={3}
-              ml={2}
-              color='white'
-              bg='orange'
-              // border='3px solid orange'
-              // borderColor='black'
-            >
-              Sign Up
-            </Button>
-          </Flex>
         </Flex>
       </HalfAndHalf>
     </Box>
