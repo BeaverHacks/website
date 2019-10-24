@@ -6,12 +6,12 @@ import Document, {
 } from 'next/document'
 
 export default class MyDocument extends Document {
-  static async getInitialProps (ctx: DocumentContext) {
+  static async getInitialProps (ctx: DocumentContext): Promise<object> {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }
 
-  render () {
+  render (): JSX.Element {
     return (
       <html>
         <Head>

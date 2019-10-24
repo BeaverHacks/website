@@ -1,24 +1,24 @@
-import App from "next/app";
-import { Global } from "@emotion/core";
-import { ThemeProvider } from "emotion-theming";
+import App from 'next/app'
+import { Global } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
 
-import theme from "../theme";
-import Header from "../components/nav";
-import Footer from "../components/footer";
+import theme from '../theme'
+import Header from '../components/nav'
+import Footer from '../components/footer'
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+  static async getInitialProps ({ Component, ctx }): Promise<object> {
+    let pageProps = {}
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps };
+    return { pageProps }
   }
 
-  render() {
-    const { Component, pageProps } = this.props;
+  render (): JSX.Element {
+    const { Component, pageProps } = this.props
 
     return (
       <>
@@ -29,7 +29,7 @@ export default class MyApp extends App {
               fontFamily: [
                 "-apple-system, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
               ],
-              fontSize: "18px",
+              fontSize: '18px',
               lineHeight: 1.7
             }
           }}
@@ -40,6 +40,6 @@ export default class MyApp extends App {
           <Footer />
         </ThemeProvider>
       </>
-    );
+    )
   }
 }

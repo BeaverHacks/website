@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "format": "prettier-eslint --write **/*.ts **/*.tsx"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",

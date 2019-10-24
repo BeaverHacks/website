@@ -1,6 +1,7 @@
-import { Flex, Text } from "rebass";
+import { FC } from 'react'
+import { Flex, Text } from 'rebass'
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <Flex
       width={1}
@@ -14,7 +15,7 @@ const Footer = () => {
         &copy; OSU Hackathon Club {new Date().getFullYear()}
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,13 +1,8 @@
-import { Flex, Box } from "rebass";
+import { FC } from 'react'
+import { Flex, Box } from 'rebass'
 
-import PropTypes from "prop-types";
-
-export const TextContainer = ({ children }) => (
+export const TextContainer: FC = props => (
   <Flex width={1} justifyContent="center" px={3}>
-    <Box sx={{ flexBasis: "800px" }}>{children}</Box>
+    <Box sx={{ flexBasis: '800px' }}>{props.children}</Box>
   </Flex>
-);
-
-TextContainer.propTypes = {
-  children: PropTypes.node
-};
+)
