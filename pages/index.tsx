@@ -1,15 +1,21 @@
-import { Box, Flex, Button } from '@rebass/emotion'
 import Head from 'next/head'
 import ky from 'ky-universal'
-import PropTypes from 'prop-types'
+import { NextPage } from 'next'
+import { Box, Flex, Text, Heading } from 'rebass'
 import { formatToTimeZone } from 'date-fns-timezone'
 
+import { DatesResponse } from '../models/dates'
 import { Hero, HeroText } from '../components/hero'
 import { HalfAndHalf } from '../components/layouts'
-import { Heading, Text, Highlight } from '../components/content'
 
-const HomePage = ({ start, end, status }) => {
-  let eventHeader
+interface HomePageProps {
+  start: string;
+  end: string;
+  status: 'upcoming' | 'in progress' | 'past';
+}
+
+const HomePage: NextPage<HomePageProps> = ({ start, end, status }) => {
+  let eventHeader: string
   switch (status) {
     case 'in progress':
       eventHeader = 'Event In Progress'
@@ -22,17 +28,17 @@ const HomePage = ({ start, end, status }) => {
   }
 
   return (
-    <Box as='main' width={[1]}>
+    <Box as="main" width={[1]}>
       <Head>
         <title>Home | BeaverHacks</title>
       </Head>
       <Hero
-        alignItems='center'
+        alignItems="center"
         justifyContent={['center', 'flex-start']}
         px={[0, 4]}
-        image='/static/kelley.jpg'
+        image="/kelley.jpg"
       >
-        <Flex flexDirection='column' alignItems={['center', 'flex-start']}>
+        <Flex flexDirection="column" alignItems={['center', 'flex-start']}>
           <HeroText
             fontSize={[6, 8]}
             py={1}
@@ -47,50 +53,47 @@ const HomePage = ({ start, end, status }) => {
           </HeroText>
         </Flex>
       </Hero>
-      <HalfAndHalf alignItems='flex-start' mt={4}>
+      <HalfAndHalf alignItems="flex-start" mt={4}>
         <Flex
-          alignItems='center'
-          flexDirection='column'
+          alignItems="center"
+          flexDirection="column"
           width={1}
-          // px={[2, 3]}
           css={{ textAlign: 'center' }}
         >
-          <Flex flexDirection='column' width={[1, 2 / 3]}>
-            <Heading>Join Us</Heading>
+          <Flex flexDirection="column" width={[1, 2 / 3]}>
+            <Heading variant="heading">Join Us</Heading>
             <Text>
-              BeaverHacks is a <Highlight>hackathon event</Highlight> for Oregon
-              State University students, organized by the OSU Hackathon Club.
+              BeaverHacks is a <Text variant="highlight">hackathon event</Text>{' '}
+              for Oregon State University students, organized by the OSU
+              Hackathon Club.
             </Text>
           </Flex>
         </Flex>
-        <Flex width={1} alignItems='center' flexDirection='column'>
-          <Heading>{eventHeader}</Heading>
-          <Highlight>{start}</Highlight>
-          <Text alone> to </Text>
-          <Highlight>{end}</Highlight>
+        <Flex width={1} alignItems="center" flexDirection="column">
+          <Heading variant="heading">{eventHeader}</Heading>
+          <Text variant="highlight">{start}</Text>
+          <Text> to </Text>
+          <Text variant="highlight">{end}</Text>
         </Flex>
       </HalfAndHalf>
     </Box>
   )
 }
 
-HomePage.getInitialProps = async ({ req, res }) => {
-  let status = 'upcoming'
-  const data = await ky(
+HomePage.getInitialProps = async ({ req, res }): Promise<HomePageProps> => {
+  let status: 'upcoming' | 'in progress' | 'past' = 'upcoming'
+  const data: DatesResponse = await ky(
     `${
       req
-        ? `${req.headers['x-forwarded-proto']}://${
-          req.headers['x-forwarded-host']
-        }`
+        ? `${req.headers['x-forwarded-proto']}://${req.headers['x-forwarded-host']}`
         : window.location.origin
     }/api/dates`
   ).json()
-  console.log(data)
   const start = new Date(data.start)
   const end = new Date(data.end)
-  if (start < Date.now() && end > Date.now()) {
+  if (start.getTime() < Date.now() && end.getTime() > Date.now()) {
     status = 'in progress'
-  } else if (end < Date.now()) {
+  } else if (end.getTime() < Date.now()) {
     status = 'past'
   }
 
@@ -107,12 +110,6 @@ HomePage.getInitialProps = async ({ req, res }) => {
     }),
     status
   }
-}
-
-HomePage.propTypes = {
-  start: PropTypes.string,
-  end: PropTypes.string,
-  status: PropTypes.oneOf(['upcoming', 'in progress', 'past'])
 }
 
 export default HomePage

@@ -1,14 +1,21 @@
 import Airtable from 'airtable'
-const base = new Airtable({ apiKey: process.env.AIRTABLE_KEY }).base(
+import { NowResponse } from '@now/node'
+
+interface Schema {
+  Name: string;
+  Date: string;
+}
+
+const base = new Airtable({ apiKey: process.env.AIRTABLE_KEY }).base<Schema>(
   process.env.AIRTABLE_BASE_ID
 )
 
-export default async (req, res) => {
+export default async (_, res: NowResponse): Promise<void> => {
   try {
-    let data = {}
+    const data: { [index: string]: string } = {}
     await base('Dates')
       .select()
-      .eachPage((records, next) => {
+      .eachPage((records, next: () => void) => {
         records.forEach(r => {
           data[r.fields.Name.toLowerCase()] = r.fields.Date
         })

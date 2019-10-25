@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "name": "beaverhacks-website",
-  "builds": [
-    { "src": "package.json", "use": "@now/next" },
-    { "src": "lambdas/**.js", "use": "@now/node" }
-  ],
+  "name": "beaverhacks",
   "alias": ["beaverhacks.now.sh", "osuhackathonclub.now.sh"],
-  "routes": [{ "src": "/api/(.*)", "dest": "/lambdas/$1.js" }],
+  "routes": [{ "src": "/api/(.*)", "dest": "/api/$1.ts" }],
   "env": {
     "AIRTABLE_KEY": "@airtable-key",
     "AIRTABLE_BASE_ID": "@airtable-homepage-id"

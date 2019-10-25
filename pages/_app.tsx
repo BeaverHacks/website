@@ -1,12 +1,13 @@
-import App, { Container } from 'next/app'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
-import Footer from '../components/footer'
-import Header from '../components/header'
+import App, { AppInitialProps } from 'next/app'
+
 import theme from '../theme'
+import Header from '../components/nav'
+import Footer from '../components/footer'
 
 export default class MyApp extends App {
-  static async getInitialProps ({ Component, router, ctx }) {
+  static async getInitialProps ({ Component, ctx }): Promise<AppInitialProps> {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -16,15 +17,20 @@ export default class MyApp extends App {
     return { pageProps }
   }
 
-  render () {
+  render (): JSX.Element {
     const { Component, pageProps } = this.props
 
     return (
-      <Container>
+      <>
         <Global
           styles={{
             body: {
-              margin: 0
+              margin: 0,
+              fontFamily: [
+                "-apple-system, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+              ],
+              fontSize: '18px',
+              lineHeight: 1.7
             }
           }}
         />
@@ -33,7 +39,7 @@ export default class MyApp extends App {
           <Component {...pageProps} />
           <Footer />
         </ThemeProvider>
-      </Container>
+      </>
     )
   }
 }
