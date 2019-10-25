@@ -1,13 +1,13 @@
-import App from 'next/app'
 import { Global } from '@emotion/core'
 import { ThemeProvider } from 'emotion-theming'
+import App, { AppInitialProps } from 'next/app'
 
 import theme from '../theme'
 import Header from '../components/nav'
 import Footer from '../components/footer'
 
 export default class MyApp extends App {
-  static async getInitialProps ({ Component, ctx }): Promise<object> {
+  static async getInitialProps ({ Component, ctx }): Promise<AppInitialProps> {
     let pageProps = {}
 
     if (Component.getInitialProps) {
