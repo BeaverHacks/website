@@ -27,7 +27,7 @@ export default class MyApp extends App {
             body: {
               margin: 0,
               fontFamily: [
-                "-apple-system, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+                "Inter, -apple-system, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
               ],
               fontSize: '18px',
               lineHeight: 1.7
