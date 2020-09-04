@@ -12,7 +12,7 @@
     "@emotion/styled": "^10.0.22",
     "@now/node": "^1.0.1",
     "@types/rebass": "^4.0.3",
-    "airtable": "^0.7.1",
+    "airtable": "^0.7.2",
     "date-fns-timezone": "^0.1.4",
     "emotion-theming": "^10.0.19",
     "ky": "^0.15.0",
